@@ -19,15 +19,15 @@ app.get('/', function (req, res) {
 
 app.use(express.json())
 app.use(express.static(__dirname))
-
+ 
 
 app.use("/api", AllRoute)
 // app.use('/upload', express.static(path.join(__dirname, '/upload')));
 
 // const url = "mongodb://localhost:27017/nurjaz"
-const url = "mongodb://nurjaz_123:nurjaz_321@nurjazkg.ru:27017/nurjaz";
+const url = "mongodb://doolot928gmailcom:doolot300999@nurjazkg.ru/election?authSource=admin"; 
 
-mongoose.connect("mongodb://localhost:27017/election")
+mongoose.connect(url) 
 app.listen(3001, function () {
     console.log('Example app listening on port 3000! on http://localhost:3001');
 });
