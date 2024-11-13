@@ -2,31 +2,26 @@ var express = require('express');
 var app = express();
 const mongoose = require("mongoose")
 const cors = require('cors');
-// const path = require('path');
-// require('dotenv').config()
+const AllRoute = require("./src/route/allRoute")
 
-// app.use(cors());'https://nurjazkg.ru:3000, http://localhost:3000'
 const allowedOrigins = ['https://nurjazkg.ru', 'http://localhost:3000'];
 
 app.use(cors());
 
-const request = require("request-promise")
-const cheerio = require("cheerio")
-
 const URL = "https://shailoo.gov.kg/kg/"
-app.get('/', async function (req, res) {
+app.get('/', function (req, res) {
 
-    await res.send('<h1 style="color:blue;">Hello World!</h1>');
-    const response = await request(URL)
-    const $ = cheerio.load(response)
-
-    console.log($);
-
+    res.send(`<h1 style="color:gray;">Hello World! 
+        <p>${"data"}</p>
+        </h1>`);
 
 });
 
 app.use(express.json())
 app.use(express.static(__dirname))
+
+
+app.use("/api", AllRoute)
 // app.use('/upload', express.static(path.join(__dirname, '/upload')));
 
 // const url = "mongodb://localhost:27017/nurjaz"
