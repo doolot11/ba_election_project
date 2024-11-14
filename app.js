@@ -33,7 +33,7 @@ const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSo
 console.log(DB);
 
 mongoose.connect("mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin")    
-app.listen(3001, function () { 
+app.listen(3002, function () { 
     // console.log(process.env.DB); 
     
     console.log('Example app listening on http://localhost:3001');
