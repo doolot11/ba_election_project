@@ -29,12 +29,16 @@ app.use("/api", AllRoute)
 
 // const url = "mongodb://localhost:27017/nurjaz"
 // const url = "mongodb://doolot928gmailcom:doolot300999@nurjazkg.ru/election?authSource=admin";  
-const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin"; 
-console.log(DB); 
- 
-mongoose.connect(DB)    
-app.listen(3001, function () { 
+const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin";
+console.log(DB);
+
+mongoose.connect(DB, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+})
+app.listen(3001, function () {
     // console.log(process.env.DB); 
-    
+
     console.log('Example app listening on http://localhost:3001');
 });
