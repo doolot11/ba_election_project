@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 const mongoose = require("mongoose")
 const cors = require('cors');
-require('dotenv').config()
+// const dotenv = require("dotenv");
+
+// dotenv.config();
 const AllRoute = require("./src/route/allRoute")
 
 const allowedOrigins = ['https://nurjazkg.ru', 'http://localhost:3000'];
@@ -27,7 +29,7 @@ app.use("/api", AllRoute)
 // const url = "mongodb://localhost:27017/nurjaz"
 // const url = "mongodb://doolot928gmailcom:doolot300999@nurjazkg.ru/election?authSource=admin";  
 const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin"; 
-console.log(process.env.DB);
+// console.log(process.env.DB);
 
 mongoose.connect(url)    
 app.listen(3001, function () { 
