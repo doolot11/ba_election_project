@@ -24,17 +24,27 @@ class Election {
             if (region_id) query.region_id = Number(region_id);
 
             const partiesWithCity = await voutesModel.find(query)
-            const result = []
-            for (let i = 0; i < partiesWithCity.length; i++) {
-                const slug = partiesWithCity[i].party_slug
+            const promise = partiesWithCity.map(async (par) => {
+                const slug = par.party_slug;
+                const getImage = await partyModel.findOne({ slug });
+                const logo = getImage?.img || 'default_image_path';
+                const oneParty = { ...par._doc, logo }; 
+                return oneParty;
+            })
+            const resultArray = await Promise.all(promise);
+            console.log(resultArray);
 
-                const getImage = await partyModel.findOne({ slug: slug.toLowerCase() })
-                const logo = getImage?.img
-                const oneParty = { ...partiesWithCity[i]._doc, getImage };
+            // const result = []
+            // for (let i = 0; i < partiesWithCity.length; i++) {
+            //     const slug = partiesWithCity[i].party_slug
 
-                result.push(oneParty)
-            }
-            await res.json(result)
+            //     const getImage = await partyModel.findOne({ slug })
+            //     const logo = getImage?.img 
+            //     const oneParty = { ...partiesWithCity[i]._doc, getImage };
+
+            //     result.push(oneParty)
+            // }
+            await res.json(resultArray)
 
             // const topParties = await voutesModel.find({}).sort
         } catch (error) {
