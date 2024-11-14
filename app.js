@@ -27,6 +27,7 @@ app.use("/api", AllRoute)
 // const url = "mongodb://localhost:27017/nurjaz"
 // const url = "mongodb://doolot928gmailcom:doolot300999@nurjazkg.ru/election?authSource=admin";  
 const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin"; 
+console.log(process.env.DB);
 
 mongoose.connect(url)    
 app.listen(3001, function () { 
