@@ -30,7 +30,7 @@ const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSo
 
 mongoose.connect(process.env.DB)    
 app.listen(3001, function () {
-    console.log(process.env.DB);
+    // console.log(process.env.DB);
     
     console.log('Example app listening on port 3000! on http://localhost:3001');
 });

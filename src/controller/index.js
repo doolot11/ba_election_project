@@ -1,5 +1,7 @@
 const { voutesModel, cityModel } = require("../model")
 const fs = require('fs');
+const citiesJSON = require("../../cities.json")
+const filePath = "../../cities.json"
 
 class Election {
     async getTopParties(req, res) {
@@ -32,10 +34,17 @@ class Election {
     }
     async uploadCities(req, res) {
         try {
-            const filePath = "../../cities.json"
-            const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-            await cityModel.insertMany(jsonData);
-            console.log("Data successfully uploaded to the database.");
+            
+            console.log(filePath);
+            
+            const jsonData = JSON.parse(fs.readFileSync(citiesJSON, 'utf-8'))
+            // console.log(jsonData);
+            
+            const result = await cityModel.insertMany(jsonData);
+            // console.log(result); 
+
+            // console.log("Data successfully uploaded to the database.",citiesJSON);
+            res.json("Success")
         } catch (error) {
             console.error("Error uploading data:", error);
         }
