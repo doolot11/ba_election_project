@@ -2,9 +2,10 @@ var express = require('express');
 var app = express();
 const mongoose = require("mongoose")
 const cors = require('cors');
-// const dotenv = require("dotenv");
+const dotenv = require("dotenv");
+dotenv.config();
 
-// dotenv.config();
+
 const AllRoute = require("./src/route/allRoute")
 
 const allowedOrigins = ['https://nurjazkg.ru', 'http://localhost:3000'];
@@ -31,7 +32,7 @@ app.use("/api", AllRoute)
 const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin"; 
 // console.log(process.env.DB);
 
-mongoose.connect(url)    
+mongoose.connect(process.env.DB)    
 app.listen(3001, function () { 
     // console.log(process.env.DB); 
     
