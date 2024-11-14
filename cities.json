@@ -1,0 +1,200 @@
+[
+  {
+    "id": "3123",
+    "name": "\u0410\u0439\u0434\u0430\u0440\u043a\u0435\u043d",
+    "region_id": 8,
+    "slug": "aidarken"
+  },
+  {
+    "id": "3131",
+    "name": "\u0411\u0430\u0437\u0430\u0440-\u041a\u043e\u0440\u0433\u043e\u043d",
+    "region_id": 2,
+    "slug": "bazar-korgon"
+  },
+  {
+    "id": "3149",
+    "name": "\u0411\u0430\u043b\u044b\u043a\u0447\u044b",
+    "region_id": 3,
+    "slug": "balykchy"
+  },
+  {
+    "id": "3134",
+    "name": "\u0411\u0430\u0442\u043a\u0435\u043d",
+    "region_id": 8,
+    "slug": "batken"
+  },
+  {
+    "id": "3121",
+    "name": "\u0411\u0438\u0448\u043a\u0435\u043a",
+    "region_id": 7,
+    "slug": "bishkek"
+  },
+  {
+    "id": "3126",
+    "name": "\u0416\u0430\u043b\u0430\u043b-\u0410\u0431\u0430\u0434",
+    "region_id": 2,
+    "slug": "zhalal-abad"
+  },
+  {
+    "id": "3124",
+    "name": "\u041a\u0430\u0434\u0430\u043c\u0436\u0430\u0439",
+    "region_id": 8,
+    "slug": "kadamzhai"
+  },
+  {
+    "id": "3148",
+    "name": "\u041a\u0430\u0439\u044b\u04a3\u0434\u044b",
+    "region_id": 7,
+    "slug": "kaiyn'dy"
+  },
+  {
+    "id": "3120",
+    "name": "\u041a\u0430\u043d\u0442",
+    "region_id": 7,
+    "slug": "kant"
+  },
+  {
+    "id": "3145",
+    "name": "\u041a\u0430\u0440\u0430-\u0411\u0430\u043b\u0442\u0430",
+    "region_id": 7,
+    "slug": "kara-balta"
+  },
+  {
+    "id": "3127",
+    "name": "\u041a\u0430\u0440\u0430-\u041a\u04e9\u043b",
+    "region_id": 2,
+    "slug": "kara-kol"
+  },
+  {
+    "id": "3140",
+    "name": "\u041a\u0430\u0440\u0430-\u0421\u0443\u0443",
+    "region_id": 5,
+    "slug": "kara-suu"
+  },
+  {
+    "id": "3150",
+    "name": "\u041a\u0430\u0440\u0430\u043a\u043e\u043b",
+    "region_id": 3,
+    "slug": "karakol"
+  },
+  {
+    "id": "3146",
+    "name": "\u041a\u0435\u043c\u0438\u043d",
+    "region_id": 7,
+    "slug": "kemin"
+  },
+  {
+    "id": "3130",
+    "name": "\u041a\u0435\u0440\u0431\u0435\u043d",
+    "region_id": 2,
+    "slug": "kerben"
+  },
+  {
+    "id": "3132",
+    "name": "\u041a\u043e\u0447\u043a\u043e\u0440-\u0410\u0442\u0430",
+    "region_id": 2,
+    "slug": "kochkor-ata"
+  },
+  {
+    "id": "4288",
+    "name": "\u041a\u04e9\u043a-\u0416\u0430\u04a3\u0433\u0430\u043a",
+    "region_id": 2,
+    "slug": "kok-zhan'gak"
+  },
+  {
+    "id": "3135",
+    "name": "\u041a\u044b\u0437\u044b\u043b-\u041a\u044b\u044f",
+    "region_id": 8,
+    "slug": "kyzyl-kyia"
+  },
+  {
+    "id": "3128",
+    "name": "\u041c\u0430\u0439\u043b\u0443\u0443-\u0421\u0443\u0443",
+    "region_id": 2,
+    "slug": "mailuu-suu"
+  },
+  {
+    "id": "3139",
+    "name": "\u041d\u0430\u0440\u044b\u043d",
+    "region_id": 4,
+    "slug": "naryn"
+  },
+  {
+    "id": "3141",
+    "name": "\u041d\u043e\u043e\u043a\u0430\u0442",
+    "region_id": 5,
+    "slug": "nookat"
+  },
+  {
+    "id": "3147",
+    "name": "\u041e\u0440\u043b\u043e\u0432\u043a\u0430",
+    "region_id": 7,
+    "slug": "orlovka"
+  },
+  {
+    "id": "3122",
+    "name": "\u041e\u0448",
+    "region_id": 5,
+    "slug": "osh"
+  },
+  {
+    "id": "3142",
+    "name": "\u04e8\u0437\u0433\u04e9\u043d",
+    "region_id": 5,
+    "slug": "ozgon"
+  },
+  {
+    "id": "3125",
+    "name": "\u0420\u0430\u0437\u0437\u0430\u043a\u043e\u0432",
+    "region_id": 8,
+    "slug": "razzakov"
+  },
+  {
+    "id": "3136",
+    "name": "\u0421\u04af\u043b\u04af\u043a\u0442\u04af",
+    "region_id": 8,
+    "slug": "suluktu"
+  },
+  {
+    "id": "3143",
+    "name": "\u0422\u0430\u043b\u0430\u0441",
+    "region_id": 6,
+    "slug": "talas"
+  },
+  {
+    "id": "3129",
+    "name": "\u0422\u0430\u0448-\u041a\u04e9\u043c\u04af\u0440",
+    "region_id": 2,
+    "slug": "tash-komur"
+  },
+  {
+    "id": "3144",
+    "name": "\u0422\u043e\u043a\u043c\u043e\u043a",
+    "region_id": 7,
+    "slug": "tokmok"
+  },
+  {
+    "id": "3138",
+    "name": "\u0422\u043e\u043a\u0442\u043e\u0433\u0443\u043b",
+    "region_id": 2,
+    "slug": "toktogul"
+  },
+  {
+    "id": "3151",
+    "name": "\u0427\u043e\u043b\u043f\u043e\u043d-\u0410\u0442\u0430",
+    "region_id": 3,
+    "slug": "cholpon-ata"
+  },
+  {
+    "id": "3133",
+    "name": "\u0428\u0430\u043c\u0430\u043b\u0434\u044b-\u0421\u0430\u0439",
+    "region_id": 2,
+    "slug": "shamaldy-sai"
+  },
+  {
+    "id": "3152",
+    "name": "\u0428\u043e\u043f\u043e\u043a\u043e\u0432",
+    "region_id": 7,
+    "slug": "shopokov"
+  }
+]

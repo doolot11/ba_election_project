@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 const mongoose = require("mongoose")
 const cors = require('cors');
+require('dotenv').config()
 const AllRoute = require("./src/route/allRoute")
 
 const allowedOrigins = ['https://nurjazkg.ru', 'http://localhost:3000'];
@@ -19,15 +20,17 @@ app.get('/', function (req, res) {
 
 app.use(express.json())
 app.use(express.static(__dirname))
- 
 
 app.use("/api", AllRoute)
 // app.use('/upload', express.static(path.join(__dirname, '/upload')));
 
 // const url = "mongodb://localhost:27017/nurjaz"
-const url = "mongodb://doolot928gmailcom:doolot300999@nurjazkg.ru/election?authSource=admin"; 
+// const url = "mongodb://doolot928gmailcom:doolot300999@nurjazkg.ru/election?authSource=admin";  
+const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin"; 
 
-mongoose.connect(url) 
+mongoose.connect(process.env.DB)    
 app.listen(3001, function () {
+    console.log(process.env.DB);
+    
     console.log('Example app listening on port 3000! on http://localhost:3001');
 });
