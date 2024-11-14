@@ -24,7 +24,7 @@ app.get('/', function (req, res) {
 app.use(express.json())
 app.use(express.static(__dirname))
 
-app.use("/api", AllRoute)
+app.use("/", AllRoute)
 // app.use('/upload', express.static(path.join(__dirname, '/upload')));
 
 // const url = "mongodb://localhost:27017/nurjaz"
