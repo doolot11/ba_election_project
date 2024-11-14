@@ -30,7 +30,7 @@ class Election {
 
                 const getImage = await partyModel.findOne({ slug })
                 const logo = getImage?.img 
-                const oneParty = { ...partiesWithCity[i]._doc, logo };
+                const oneParty = { ...partiesWithCity[i]._doc, getImage };
 
                 result.push(oneParty)
             }
