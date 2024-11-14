@@ -28,7 +28,7 @@ class Election {
                 const slug = par.party_slug;
                 const getImage = await partyModel.findOne({ slug });
                 const logo = getImage?.img || 'default_image_path';
-                const oneParty = { ...par._doc, logo }; 
+                const oneParty = { ...par._doc, image: logo }; 
                 return oneParty;
             })
             const resultArray = await Promise.all(promise);
