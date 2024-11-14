@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 const mongoose = require("mongoose")
 const cors = require('cors');
-const DB = process.env.DB;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 
 const AllRoute = require("./src/route/allRoute")
@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
         <p>${"data"}</p>
         </h1>`);
 
-});
+}); 
 
 app.use(express.json())
 app.use(express.static(__dirname))
@@ -30,13 +30,9 @@ app.use("/api", AllRoute)
 // const url = "mongodb://localhost:27017/nurjaz"
 // const url = "mongodb://doolot928gmailcom:doolot300999@nurjazkg.ru/election?authSource=admin";  
 const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin";
-console.log(DB);
+console.log(MONGODB_URI);
 
-mongoose.connect(DB, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useCreateIndex: true,
-})
+mongoose.connect(MONGODB_URI)
 app.listen(3001, function () {
     // console.log(process.env.DB); 
 
