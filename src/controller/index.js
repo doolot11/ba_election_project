@@ -23,12 +23,12 @@ class Election {
             if (city) query.city_slug = city;
             if (region_id) query.region_id = Number(region_id);
 
-            const partiesWithCity = await voutesModel.find(query)
+            const partiesWithCity = await voutesModel.find(query).sort({ percent: -1 })
             const promise = partiesWithCity.map(async (par) => {
                 const slug = par.party_slug;
                 const getImage = await partyModel.findOne({ slug });
-                const logo = getImage?.img || 'default_image_path';
-                const oneParty = { ...par._doc, logo,  };
+                const logo = getImage?.img || '';
+                const oneParty = { ...par._doc, logo, };
                 return oneParty;
             })
             const resultArray = await Promise.all(promise);
@@ -75,8 +75,44 @@ class Election {
             const { party } = req.query
             const query = {}
             if (party) query.party_slug = party
-            const cities = await voutesModel.find(query)
+            const cities = await voutesModel.find(query).sort({ percent: -1 })
             res.json(cities)
+        } catch (error) {
+            return res.status(500).json(error)
+        }
+    }
+    async getCitiesByRegion(req, res) {
+        try {
+            const { region_id } = req.query
+            const query = {}
+            if (region_id) query.region_id = +region_id
+            const cities = await voutesModel.aggregate([
+                { $match: query }, // Filter documents by region_id or other criteria
+                {
+                    $group: {
+                        _id: "$party_slug", // Group by party_slug
+                        // logo: { $first: "$logo" },
+                        city_slug: { $first: "$city_slug" },
+                        name: { $first: "$name" },
+                        region_id: { $first: "$region_id" },
+                        count: { $first: "$count" },
+                        percent: { $first: "$percent" },
+                        position: { $first: "$position" },
+                        update_ts: { $first: "$update_ts" },
+                        party_slug: { $first: "$party_slug" }
+                    }
+                }
+            ]);
+            //   city_slug: { type: String, default: "" },
+            //   name: { type: String, default: "" },
+            //   region_id: { type: Number, default: 0 },
+            //   count: { type: Number, default: 0 },
+            //   percent: { type: String, default: "" },
+            //   position: { type: Number, default: 0 },
+            //   update_ts: { type: Number, default: 0 },
+            //   logo: { type: String, default: "" },
+            //   party_slug: { type: String, default: "" },
+            await res.json(cities)
         } catch (error) {
             return res.status(500).json(error)
         }
