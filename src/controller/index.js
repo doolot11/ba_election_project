@@ -31,9 +31,10 @@ class Election {
 
                 const oneParty = { ...par._doc, logo, percent: parseFloat(par.percent.slice(0, -1)) };
                 return oneParty;
-            }).sort((a, b) => b.percent - a.percent)
+            })
             const resultArray = await Promise.all(promise);
-            console.log(resultArray);
+            const resultSort = resultArray.sort((a, b) => b.percent - a.percent)
+            console.log(resultSort);
 
             // const result = []
             // for (let i = 0; i < partiesWithCity.length; i++) {
@@ -45,7 +46,7 @@ class Election {
 
             //     result.push(oneParty)
             // }
-            await res.json(resultArray)
+            await res.json(resultSort)
 
             // const topParties = await voutesModel.find({}).sort
         } catch (error) {
@@ -78,13 +79,18 @@ class Election {
             if (party) query.party_slug = party
             const cities = await voutesModel.find(query)
 
+            console.log(cities, "cmcm");
+            
+
             const promise = cities.map(async (par) => {
                 const city = { ...par._doc, percent: parseFloat(par.percent.slice(0, -1)) };
                 return city;
-            }).sort((a, b) => b.percent - a.percent)
+            })
             const resultArray = await Promise.all(promise);
+            const resultSort = resultArray.sort((a, b) => b.percent - a.percent)
+            // console.log(resultSort);
 
-            res.json(resultArray)
+            res.json(resultSort)
         } catch (error) {
             return res.status(500).json(error)
         }
