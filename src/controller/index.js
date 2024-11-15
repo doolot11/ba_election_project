@@ -44,7 +44,7 @@ class Election {
 
             //     result.push(oneParty)
             // }
-            await res.json("resultArray")
+            await res.json(resultArray)
 
             // const topParties = await voutesModel.find({}).sort
         } catch (error) {
