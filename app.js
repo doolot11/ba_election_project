@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
         <p>${"data"}</p>
         </h1>`);
 
-}); 
+});
 
 app.use(express.json())
 app.use(express.static(__dirname))
@@ -32,7 +32,7 @@ app.use("/", AllRoute)
 const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin";
 console.log(MONGODB_URI);
 
-mongoose.connect(MONGODB_URI)
+mongoose.connect(MONGODB_URI || "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin")
 const port = 3002
 app.listen(port, function () {
     // console.log(process.env.DB); 
