@@ -23,14 +23,15 @@ class Election {
             if (city) query.city_slug = city;
             if (region_id) query.region_id = Number(region_id);
 
-            const partiesWithCity = await voutesModel.find(query).sort({ percent: -1 })
+            const partiesWithCity = await voutesModel.find(query)
             const promise = partiesWithCity.map(async (par) => {
                 const slug = par.party_slug;
                 const getImage = await partyModel.findOne({ slug });
                 const logo = getImage?.img || '';
-                const oneParty = { ...par._doc, logo, };
+
+                const oneParty = { ...par._doc, logo, percent: parseFloat(par.percent.slice(0, -1)) };
                 return oneParty;
-            })
+            }).sort((a, b) => b.percent - a.percent)
             const resultArray = await Promise.all(promise);
             console.log(resultArray);
 
@@ -75,8 +76,15 @@ class Election {
             const { party } = req.query
             const query = {}
             if (party) query.party_slug = party
-            const cities = await voutesModel.find(query).sort({ percent: -1 })
-            res.json(cities)
+            const cities = await voutesModel.find(query)
+
+            const promise = cities.map(async (par) => {
+                const city = { ...par._doc, percent: parseFloat(par.percent.slice(0, -1)) };
+                return city;
+            }).sort((a, b) => b.percent - a.percent)
+            const resultArray = await Promise.all(promise);
+
+            res.json(resultArray)
         } catch (error) {
             return res.status(500).json(error)
         }
