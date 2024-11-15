@@ -33,8 +33,9 @@ const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSo
 console.log(MONGODB_URI);
 
 mongoose.connect(MONGODB_URI)
-app.listen(3001, function () {
+const port = 3002
+app.listen(port, function () {
     // console.log(process.env.DB); 
 
-    console.log('Example app listening on http://localhost:3001');
+    console.log('Example app listening on http://localhost:' + port);
 });
