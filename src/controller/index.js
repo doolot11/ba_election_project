@@ -135,7 +135,7 @@ class Election {
         try {
             const { city } = req.query
 
-            const countOfVotes = await countOfVotesModel.find({ city_slug: city })
+            const countOfVotes = await countOfVotesModel.findOne({ city_slug: city })
             await res.json(countOfVotes)
 
         } catch (error) {
