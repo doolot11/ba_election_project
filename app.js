@@ -24,17 +24,17 @@ app.get('/', function (req, res) {
 app.use(express.json())
 app.use(express.static(__dirname))
 
-app.use("/", AllRoute)
+app.use("/", AllRoute) 
 // app.use('/upload', express.static(path.join(__dirname, '/upload')));
 
 // const url = "mongodb://localhost:27017/nurjaz"
 // const url = "mongodb://doolot928gmailcom:doolot300999@nurjazkg.ru/election?authSource=admin";  
-const url = "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin";
+const url = "mongodb://election:election12345@dobush.kg:27017/election?authSource=admin";
 console.log(MONGODB_URI);
 
-mongoose.connect(MONGODB_URI || "mongodb://election:election12345@45.9.191.113:27017/election?authSource=admin")
+mongoose.connect(MONGODB_URI || "mongodb://election:election12345@dobush.kg:27017/election?authSource=admin")
 const port = 3002
-app.listen(port, function () {
+app.listen(port, function () { 
     // console.log(process.env.DB); 
 
     console.log('Example app listening on http://localhost:' + port);
