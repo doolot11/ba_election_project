@@ -1,4 +1,4 @@
-const { voutesModel, cityModel, partyModel } = require("../model")
+const { voutesModel, cityModel, partyModel, countOfVotesModel } = require("../model")
 const fs = require('fs');
 const citiesJSON = require("../../cities.json")
 const filePath = "../../cities.json"
@@ -80,7 +80,7 @@ class Election {
             const cities = await voutesModel.find(query)
 
             console.log(cities, "cmcm");
-            
+
 
             const promise = cities.map(async (par) => {
                 const city = { ...par._doc, percent: parseFloat(par.percent.slice(0, -1)) };
@@ -127,6 +127,17 @@ class Election {
             //   logo: { type: String, default: "" },
             //   party_slug: { type: String, default: "" },
             await res.json(cities)
+        } catch (error) {
+            return res.status(500).json(error)
+        }
+    }
+    async getCountOfVotes(req, res) {
+        try {
+            const { city } = req.query
+
+            const countOfVotes = await countOfVotesModel.find({ city_slug: city })
+            await res.json(countOfVotes)
+
         } catch (error) {
             return res.status(500).json(error)
         }

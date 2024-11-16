@@ -28,8 +28,18 @@ const partySchema = new Schema({
     img: { type: String, default: "" },
 })
 
+const countOfVotesSchema = new Schema({
+    city_slug: { type: String, default: "" },
+    three: { type: Number, default: 0, require: false },
+    five: { type: Number, default: 0, require: false },
+    seven: { type: Number, default: 0, require: false },
+    eight: { type: Number, default: 0, require: false },
+})
+// city_slug="kaiyn'dy" three=7027 five=0 seven=0 eight=0
+
 const voutesModel = model("vote", voutesSchema)
 const cityModel = model("city", citySchema)
 const partyModel = model("parties", partySchema)
-module.exports = { voutesModel, cityModel,partyModel }
+const countOfVotesModel = model("countvotes", countOfVotesSchema)
+module.exports = { voutesModel, cityModel, partyModel, countOfVotesModel }
 
